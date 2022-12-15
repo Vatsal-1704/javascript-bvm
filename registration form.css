@@ -1,0 +1,84 @@
+
+    input[type=text] {
+      width: 16%;
+      padding: 6px 10px;
+      margin: 1px 0;
+      box-sizing: border-box;
+      border: 1px solid #555;
+      border-radius: 10px;
+      outline: none;
+    }
+    
+    input[type=radio]{
+        border: 0px;
+        width: 1.5%;
+        height: 1.5em;
+    }
+
+    input[type=text]:focus {
+      background-color: rgb(115, 228, 236);
+    }
+
+    select {
+        width: 20%;
+        padding: 8px 10px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(164, 214, 236);
+        text-transform: uppercase;
+        text-shadow: 2px 4px 4px rgb(223, 214, 214);
+        font-size: 20px;
+    }
+
+    button {
+        background-color: rgb(69, 219, 149);
+        text-transform: uppercase;
+        text-shadow: 2px 4px 4px white;
+        font-size: 20px;
+        border-radius: 10px;
+
+    }
+    button:hover {
+        box-shadow: 0 12px 16px 0 rgb(97, 238, 132), 0 17px 50px 0 rgb(210, 243, 119);
+    }
+
+    html { 
+        background: url(123.jpg) no-repeat center fixed; 
+        background-size: cover;
+    }
+    
+    body {
+        color: rgb(190, 240, 180);
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px black, 0 0 25px rgb(47, 240, 198), 0 0 5px rgb(20, 70, 14);
+        font-size: 30px;
+    }
+   table {
+    margin: 2px;
+    width: 100%;
+    text-align: center;
+    
+   }
+
+   fieldset{
+    margin: 0% auto;
+    width: 80%;
+    padding: 8px 100px;
+    border: 2px solid rgb(32, 74, 136);
+    
+   }
+
+   td {
+    margin-left: 20px;
+    border: 2px solid rgb(18, 156, 211);
+    padding: auto;
+   }
+
+   th {
+    margin: 50px;
+    border: 2px solid rgb(99, 199, 182);
+    background-color: #555;
+    border-width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+   }
