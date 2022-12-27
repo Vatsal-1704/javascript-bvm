@@ -7,7 +7,7 @@ function onFormSubmit() {
             validate(this);
 		}
         else{
-            updateRecord();
+            manageData();
 		}
         resetForm();    
 }
@@ -65,10 +65,8 @@ function validate(){
                     <td>${del}</td>
                 <tr>`;
 
-    document.getElementById("tbl").innerHTML += table;       
-
-    }
-    
+        document.getElementById("tbl").innerHTML += table;  
+        
         document.getElementById('f1').value = "";
         document.getElementById('l1').value = "";
         document.getElementById('e1').value = "";
@@ -76,8 +74,40 @@ function validate(){
         document.getElementById('ad').value = "";
         document.getElementById('mo').value = "";   
         // document.getElementById('genderNew').value = "";
-           
-}
+
+
+    // {
+    // 
+    // }
+    
+    let id="no";
+    //localStorage.clear();
+    selectData();
+    function manageData(){
+        // document.getElementById('tbl').innerHTML="";
+        let fname=document.getElementById('f1').value;
+        let lname=document.getElementById('l1').value;
+        let email=document.getElementById('e1').value;
+
+        if(id=='no'){
+            let arr=getData();
+            if(arr==null){
+                let data=[fname, lname , email];
+                setData(data);
+            }else{
+                arr.push(fname, lname, email);
+                setData(arr);
+            }
+        }else{
+            let arr=getData();
+            arr[id]=fname;
+            setData(arr);
+        }
+        selectData();
+    }
+    }   
+}    
+
     function onEdit(td) {
         selectedRow = td.parentElement.parentElement;
         document.getElementById("f1").value = selectedRow.cells[0].innerHTML;
@@ -110,6 +140,8 @@ function validate(){
         selectedRow.cells[5].innerHTML = ad.value;
         selectedRow.cells[6].innerHTML = mo;
         // selectedRow.cells[3].innerHTML = genderNew;
+
+
 }
     //Reset the data
     function resetForm() {
@@ -119,7 +151,7 @@ function validate(){
         document.getElementById("proffesion").value = '';
         document.getElementById("ad").value = '';
         document.getElementById("mo").value = '';
-        // document.getElementById("genderNew").value = '';
+        document.getElementById("genderNew").value ;
         selectedRow = null;
 }
 
@@ -130,3 +162,29 @@ function validate(){
                 resetForm();
             }
         }
+        function selectData(){
+            let arr=getData();
+            if(arr!=null){
+                    var table1 = `<tr>   
+                     <td>${f1}</td>
+                     <td>${l1}</td>
+                     <td>${e1}</td>
+                     <td>${genderNew}</td>
+                     <td>${proffesion1}</td>
+                     <td>${add1}</td>
+                     <td>${mo1}</td>
+                 <tr>`;
+
+         document.getElementById("tbl1").innerHTML += table1;
+                }
+    }
+        
+        function getData(){
+            let arr=JSON.parse(localStorage.getItem('crud'));
+            return arr;
+        }
+        
+        function setData(arr){
+            localStorage.setItem('crud',JSON.stringify(arr));
+        }
+        
